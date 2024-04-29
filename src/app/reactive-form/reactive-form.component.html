@@ -1,1 +1,17 @@
-<p>reactive-form works!</p>
+<p>reactive-form</p>
+
+<div class="container">
+  <h2 class="heading">reactive-form</h2>
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="userForm?.get('name')?.invalid && userForm?.get('name')?.touched" class="text-danger">
+          Name is required.
+        </div>
+      </div>
+
+    <div *ngIf="userForm?.get('name')"></div>
+</form>  
+</div>
